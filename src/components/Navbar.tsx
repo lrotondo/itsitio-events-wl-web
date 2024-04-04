@@ -1,4 +1,4 @@
-import { Flex, HStack } from "@chakra-ui/react";
+import { Flex, HStack, useBreakpointValue } from "@chakra-ui/react";
 import { EventSponsor } from "../api/types";
 import NavbarItem from "./NavbarItem";
 import Sponsors from "./Sponsors";
@@ -8,6 +8,7 @@ interface Props {
     isPast: boolean;
     renderer: number;
 }
+const isMobile = useBreakpointValue({ base: true, md: false });
 
 const Navbar = ({ sponsors, isPast }: Props) => {
     return (
@@ -28,7 +29,8 @@ const Navbar = ({ sponsors, isPast }: Props) => {
                 >
                     <NavbarItem label="Información" href={"#info"} />
                     <NavbarItem label="Oradores" href={"#speakers"} />
-                    {!isPast && (
+                    <NavbarItem label="Moderadores" href={"#moderators"} />
+                    {!isPast && !isMobile && (
                         <NavbarItem
                             label={"Inscripciones"}
                             href={"#inscriptions"}

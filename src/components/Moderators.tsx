@@ -1,15 +1,15 @@
-import { EventSpeaker } from "../api/types";
+import { EventModerator } from "../api/types";
 import { Heading, HStack, useBreakpointValue, VStack } from "@chakra-ui/react";
 import { useContext } from "react";
 import { PrimaryColorContext } from "../utils/context";
-import SpeakersCarousel from "./SpeakersCarousel";
-import SpeakerItem from "./SpeakerItem";
+import ModeratorsCarousel from "./ModeratorsCarousel";
+import ModeratorItem from "./ModeratorItem";
 
 interface Props {
-    speakers: EventSpeaker[];
+    moderators: EventModerator[];
 }
 
-const Speakers = ({ speakers }: Props) => {
+const Moderators = ({ moderators }: Props) => {
     const primaryColor = useContext(PrimaryColorContext);
     const countdownComponent = document.getElementById("countdown");
     const isMobile = useBreakpointValue({ base: true, md: false });
@@ -20,7 +20,7 @@ const Speakers = ({ speakers }: Props) => {
             h={"fit-content"}
             justifyContent={"center"}
             spacing={8}
-            id="speakers"
+            id="moderators"
             py={12}
             mt={8}
         >
@@ -32,22 +32,22 @@ const Speakers = ({ speakers }: Props) => {
                         : 0
                 }
             >
-                Oradores
+                Moderadores
             </Heading>
-            {speakers.length >= 6 || isMobile ? (
-                <SpeakersCarousel speakers={speakers} />
+            {moderators.length >= 6 || isMobile ? (
+                <ModeratorsCarousel moderators={moderators} />
             ) : (
                 <HStack
                     w={"80%"}
                     justifyContent={"center"}
                     alignItems={"flex-start"}
-                    spacing={speakers.length < 4 ? 10 : 5}
+                    spacing={moderators.length < 4 ? 10 : 5}
                 >
-                    {speakers.map((speaker) => (
-                        <SpeakerItem
+                    {moderators.map((moderator) => (
+                        <ModeratorItem
                             width="fit-content"
-                            key={speaker.id}
-                            speaker={speaker}
+                            key={moderator.id}
+                            moderator={moderator}
                         />
                     ))}
                 </HStack>
@@ -56,4 +56,4 @@ const Speakers = ({ speakers }: Props) => {
     );
 };
 
-export default Speakers;
+export default Moderators;

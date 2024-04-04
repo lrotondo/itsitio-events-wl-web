@@ -11,6 +11,7 @@ import Inscriptions from "./Inscriptions";
 import LoadingOverlay from "./LoadingOverlay";
 import Navbar from "./Navbar";
 import Speakers from "./Speakers";
+import Moderators from "./Moderators";
 import Stream from "./Stream";
 
 const EventView = () => {
@@ -82,6 +83,7 @@ const EventView = () => {
                         />
                     )}
                     <Speakers speakers={event.speakers} />
+                    <Moderators moderators={event.moderators} />
                     {!event.isPast && <Inscriptions event={event} />}
                     <Footer sponsors={event.sponsors} />
                 </Box>

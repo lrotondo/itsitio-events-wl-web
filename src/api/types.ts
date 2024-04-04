@@ -10,6 +10,7 @@ export interface Event {
     dateUTC: string;
     speakers: EventSpeaker[];
     sponsors: EventSponsor[];
+    moderators: EventModerator[];
     slug: string;
     arenaId: string;
     streamId: string;
@@ -25,6 +26,13 @@ export interface EventSpeaker {
     speaker: Speaker;
 }
 
+export interface EventModerator {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    moderator: Moderator;
+}
+
 export interface EventSponsor {
     id: string;
     createdAt: Date;
@@ -33,6 +41,17 @@ export interface EventSponsor {
 }
 
 export interface Speaker {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    name: string;
+    picture: string;
+    video?: string;
+    description: string;
+    bio: string;
+}
+
+export interface Moderator {
     id: string;
     createdAt: Date;
     updatedAt: Date;
