@@ -8,9 +8,8 @@ interface Props {
     isPast: boolean;
     renderer: number;
 }
-const isMobile = useBreakpointValue({ base: true, md: false });
-
 const Navbar = ({ sponsors, isPast }: Props) => {
+    const isMobile = useBreakpointValue({ base: true, md: false });
     return (
         <HStack w={"full"} justifyContent={"center"} px={[1, 3]} py={5}>
             <Flex
